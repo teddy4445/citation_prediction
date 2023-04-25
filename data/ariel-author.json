@@ -1,0 +1,51 @@
+{
+	"url": "https://scholar.google.com/citations?user=GGQ6sw0AAAAJ&hl=en",
+	"name": "Ariel Alexi",
+	"title": "Bar-Ilan University",
+	"study_fields": "Computer simulation",
+	"articles": [{
+		"name": "Comparison of pandemic intervention policies in several building types using heterogeneous population model",
+		"url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GGQ6sw0AAAAJ&citation_for_view=GGQ6sw0AAAAJ:u5HHmVD_uO8C",
+		"co_authors": "T Lazebnik, A Alexi",
+		"journal_info": "Communications in Nonlinear Science and Numerical Simulation 107, 106176",
+		"cited_by": "15",
+		"publish_year": "2022"
+	}, {
+		"name": "A Security Games Inspired Approach for Distributed Control of Pandemic Spread",
+		"url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GGQ6sw0AAAAJ&citation_for_view=GGQ6sw0AAAAJ:2osOgNQ5qMEC",
+		"co_authors": "A Alexi, A Rosenfeld, T Lazebnik",
+		"journal_info": "Advanced Theory and Simulations 6 (2), 2200631",
+		"cited_by": "2",
+		"publish_year": "2023"
+	}, {
+		"name": "High Resolution Spatio-Temporal Model for Room-Level Airborne Pandemic Spread",
+		"url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GGQ6sw0AAAAJ&citation_for_view=GGQ6sw0AAAAJ:d1gkVwhDpl0C",
+		"co_authors": "T Lazebnik, A Alexi",
+		"journal_info": "Mathematics 11 (2), 426",
+		"cited_by": "1",
+		"publish_year": "2023"
+	}, {
+		"name": "The Trade-Off between Airborne Pandemic Control and Energy Consumption Using Air Ventilation Solutions",
+		"url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=GGQ6sw0AAAAJ&citation_for_view=GGQ6sw0AAAAJ:9yKSN-GCB0IC",
+		"co_authors": "A Alexi, A Rosenfeld, T Lazebnik",
+		"journal_info": "Sensors 22 (22), 8594",
+		"cited_by": "1",
+		"publish_year": "2022"
+	}],
+	"cited_by": {
+		"citations_all": "19",
+		"citations_since_2018": "19",
+		"h_index_all": "2",
+		"h_index_since_2018": "2",
+		"i10_index_all": "1",
+		"i10_index_since_2018": "1",
+		"over_the_years": {
+			"2022": "12",
+			"2023": "7"
+		}
+	},
+	"co_authors": {
+		"https://scholar.google.com/citations?user=7Kl5lGYAAAAJ&hl=en": "Teddy Lazebnik",
+		"https://scholar.google.com/citations?user=jk8bS5QAAAAJ&hl=en": "Ariel Rosenfeld"
+	}
+}
