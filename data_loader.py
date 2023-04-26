@@ -3,6 +3,11 @@ import os
 import json
 import pandas as pd
 from glob import glob
+import sys
+sys.setrecursionlimit(1500)
+import clarivate.wos_journals.client
+from clarivate.wos_journals.client.api import journals_api
+from clarivate.wos_journals.client.model.journal_list import JournalList
 
 # project imports
 from consts import *
@@ -10,6 +15,7 @@ from nlp_model import NLPmodel
 from models.paper import Paper
 from models.author import Author
 from models.sample import Sample
+from journal_data_fatch import JournalDataFatch
 
 
 class DataLoader:
@@ -21,7 +27,7 @@ class DataLoader:
         pass
 
     @staticmethod
-    def run(data_path: str = str) -> pd.DataFrame:
+    def run(data_path: str) -> pd.DataFrame:
         papers = []
         authors = {}
         for file_path in glob(os.path.join(data_path, "*.json")):
@@ -39,7 +45,6 @@ class DataLoader:
         nlp_model = NLPmodel()
         for paper in papers:
             # use models to process the paper data to something we can use
-            # TODO: once you learn the data about a journal, save it for later so you do not need to query it twice but just ref to it and use it again
             # TODO: for the specific paper, update it using the next method
             paper.update_journal_data(journal_h_index=0,
                                       journal_q_index=0,
@@ -48,6 +53,9 @@ class DataLoader:
             paper.use_nlp_model(nlp_model=nlp_model)
 
             # TODO: gather data from the web to get the data about journals - try https://github.com/clarivate/wosjournals-python-client
+            # TODO: once you learn the data about a journal, save it for later so you do not need to query it twice but just ref to it and use it again
+            JournalDataFatch.run(journal_name=paper.journal_name,
+                                 lookup_year=paper.publish_year)
 
             samples.append(Sample.create(paper=paper,
                                          authors=[authors[author_name] for author_name in paper.co_authors]))

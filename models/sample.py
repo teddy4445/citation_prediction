@@ -25,8 +25,8 @@ class Sample(Model):
     co_authors_h_index_max: int
     co_authors_citation_max: int
     co_authors_i10_max: int
-    journal_h_index: int
     journal_q_index: int
+    journal_citations: int
     journal_impact_factor: int
     publish_year: int
     citations_per_year: list  # this is the "y" column
@@ -47,8 +47,8 @@ class Sample(Model):
         answer.co_authors_citation_max = np.max([author.citations for author in authors])
         answer.co_authors_h_index_max = np.max([author.h_index for author in authors])
         answer.co_authors_i10_max = np.max([author.i10_index for author in authors])
-        answer.journal_h_index = paper.journal_h_index
         answer.journal_q_index = paper.journal_q_index
+        answer.journal_citations = paper.journal_citations
         answer.journal_impact_factor = paper.journal_impact_factor
         answer.citations_per_year = paper.citations_per_year
         return answer

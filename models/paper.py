@@ -35,12 +35,12 @@ class Paper(Model):
         self.abstract_encoded = nlp_model.run(text=self.abstract)
 
     def update_journal_data(self,
-                            journal_h_index: int,
                             journal_q_index: int,
-                            journal_impact_factor: int):
-        self.journal_h_index = journal_h_index
+                            journal_impact_factor: int,
+                            journal_citations: int):
         self.journal_q_index = journal_q_index
         self.journal_impact_factor = journal_impact_factor
+        self.journal_citations = journal_citations
 
     @staticmethod
     def load_from_json(json_data: dict):
@@ -57,7 +57,7 @@ class Paper(Model):
         answer.title_encoded = None
         answer.abstract_encoded = None
         answer.co_authors_count = len(answer.co_authors)
-        answer.journal_h_index = ERROR_VAL
         answer.journal_q_index = ERROR_VAL
+        answer.journal_citations = ERROR_VAL
         answer.journal_impact_factor = ERROR_VAL
         return answer
