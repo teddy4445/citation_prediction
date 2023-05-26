@@ -10,3 +10,6 @@ black
 gensim
 tensorflow
 keras
+nltk
+pybliometrics
+pyscopus

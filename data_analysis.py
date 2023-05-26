@@ -4,7 +4,7 @@ import pandas as pd
 
 # project imports
 from consts import *
-from citation_prediction_model import CitationPredictionModel
+from midas_touch_clustering import MidasTouchClustering
 
 
 class DataAnalysis:
@@ -18,7 +18,7 @@ class DataAnalysis:
     @staticmethod
     def model_pipeline(df: pd.DataFrame,
                        model_save_path: str = str):
-        model = CitationPredictionModel()
+        model = MidasTouchClustering()
         # TODO: split the 'df' to train, validation, and test and than to x_static, x_time_series, and y
         model.train(x_train_static=,
                     x_train_time_series=,

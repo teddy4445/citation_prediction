@@ -4,20 +4,18 @@ import sys
 sys.setrecursionlimit(1500)
 import clarivate.wos_journals.client
 from clarivate.wos_journals.client.api import journals_api
-from clarivate.wos_journals.client.model.journal_list import JournalList
 
 # project imports
-from consts import *
+from journal_data_apis.journal_data_fatch import JournalDataFatch
 
-
-class JournalDataFatch:
+class JournalDataFatchWOS(JournalDataFatch):
     """
     A class to get the needed data about a journal from its name
     Note, run 'pip install git+https://github.com/clarivate/wosjournals-python-client.git' to make this class work
     """
 
     def __init__(self):
-        pass
+        JournalDataFatch.__init__(self)
 
     @staticmethod
     def run(journal_name: str,

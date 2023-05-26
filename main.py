@@ -51,8 +51,6 @@ class Main:
         # generate model and make some relevant models
         model = DataAnalysis.model_pipeline(df=df,
                                             model_save_path=MODEL_PATH)
-        # TODO: in the current version, the author's metrics and journal metric's are confused in time, as the author is today's data
-        # TODO: moreover, as we predict over time, both numbers are change over time but we do not take it into considuration
 
         # run analysis using the model
         # TODO: add here

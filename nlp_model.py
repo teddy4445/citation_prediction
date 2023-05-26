@@ -1,6 +1,7 @@
 # library imports
 import os
 import gensim
+import numpy as np
 from nltk.data import find
 
 
@@ -15,4 +16,13 @@ class NLPmodel:
 
     def run(self,
             text: str) -> list:
-        return self.model[text]  # should return a 300 dimensional list (vector)
+        while "  " in text:
+            text = text.replace("  ", " ")
+        answer = []
+        for word in text.split(" "):
+            word = word.lower().strip()
+            try:
+                answer.append(np.array(self.model[word]))
+            except:
+                pass
+        return np.mean(answer, axis=0)
