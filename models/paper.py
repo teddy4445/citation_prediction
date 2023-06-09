@@ -26,6 +26,7 @@ class Paper(Model):
     abstract_encoded: list
     co_authors_count: int
     journal_h_index: int
+    publish_type: str
     journal_q_index: int
     journal_impact_factor: int
 
@@ -49,10 +50,10 @@ class Paper(Model):
         answer.title = json_data["name"]
         answer.abstract = json_data["abstract"]  # TODO: make sure with Alexi this is the name she uses
         answer.co_authors = json_data["co_authors"].split(",") if "," in json_data["co_authors"] else [json_data["co_authors"]]
-        answer.journal_name = json_data["journal_info"]
+        answer.journal_name = json_data["publication_name"]
         answer.publish_year = json_data["publish_year"]
         answer.citations_per_year = json_data["citations_per_year"]  # TODO: make sure with Alexi this is the name she uses
-
+        answer.publish_type = json_data['publication_type']
         # init empty the process data
         answer.title_encoded = None
         answer.abstract_encoded = None

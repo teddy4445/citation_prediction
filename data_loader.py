@@ -26,8 +26,12 @@ class DataLoader:
         authors = {}
         for file_path in glob(os.path.join(data_path, "*.json")):
             # load file
-            with open(file_path, "r") as json_data_file:
-                author_json = json.load(json_data_file)
+            # with open(file_path, "r") as json_data_file:
+            #     author_json = json.load(json_data_file)
+            json_file = open(file_path,'r')
+            json_lines = json_file.readlines()
+            # will be all jsons not only one
+            author_json = json.loads(json_lines[0])
             # process the needed data on the author level for later
             authors[author_json["name"]] = Author.load_from_json(json_data=author_json)
             # process the basic data of the papers and the author
@@ -41,6 +45,8 @@ class DataLoader:
             try:
                 j_answer = journals_data[paper.journal_name][paper.publish_year]
             except:
+                if paper.publish_type != 'Journal':
+                    continue
                 j_answer = JournalDataFatchScopus.run(journal_name=paper.journal_name,
                                                       lookup_year=paper.publish_year)
                 try:

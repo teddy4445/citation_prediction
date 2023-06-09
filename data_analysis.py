@@ -20,12 +20,12 @@ class DataAnalysis:
                        model_save_path: str = str):
         model = MidasTouchClustering()
         # TODO: split the 'df' to train, validation, and test and than to x_static, x_time_series, and y
-        model.train(x_train_static=,
-                    x_train_time_series=,
-                    y_train=,
-                    x_valid_static=,
-                    x_valid_time_series=,
-                    y_valid=)
+        model.train(x_train_static=None,
+                    x_train_time_series=None,
+                    y_train=None,
+                    x_valid_static=None,
+                    x_valid_time_series=None,
+                    y_valid=None)
         # TODO: finish later
         model.test()
         model.save_model(save_file=model_save_path)
