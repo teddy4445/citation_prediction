@@ -27,12 +27,24 @@ class JournalDataFatchScopus(JournalDataFatch):
         """
         scopus = Scopus(JournalDataFatchScopus.KEY)
         meta_df, citescore_df, sj_rank_df = scopus.search_serial(journal_name)
-        percentile = int(sj_rank_df[sj_rank_df["year"] == str(lookup_year)]["percentile"])
+        a = sj_rank_df[sj_rank_df["year"] == str(lookup_year)]["percentile"]
+        total_q_index = 0
+        #percentile = int(sj_rank_df[sj_rank_df["year"] == str(lookup_year)]["percentile"])
+        for q_index in a:
+            total_q_index += int(q_index)
+        #percentile = a.any().astype(int)
+        percentile = int(total_q_index)
         filtered_year = citescore_df[citescore_df["year"] == str(lookup_year)]
         # an edge case for the last journal in the ranking
         if percentile == 0:
             percentile = 1
-        return {"impact_factor": int(list(filtered_year["citeScore"])[0]),
+        #c = int(float(list(filtered_year["citeScore"])[0]))
+        try:
+            return {"impact_factor": int(float(list(filtered_year["citeScore"])[0])),
                 "citations": int(list(filtered_year["citationCount"])[0]),
-                "q_index": 5 - math.ceil(percentile/25)}
+                "q_index": round(abs(5 - (math.ceil(percentile/25))/100))}
+        except:
+            return {"impact_factor": 0,
+                    "citations": 0,
+                    "q_index": 5 - math.ceil(percentile / 25)}
 
