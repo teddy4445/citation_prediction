@@ -14,18 +14,32 @@ class Author(Model):
     """
     # core data
     name: str
-    h_index: str
-    citations: list
-    i10_index: str
-    papers_count: int
+    study_fields: str
+    citations_all: str
+    citations_since_2018: str
+    h_index_all: str
+    h_index_since_2018: str
+    i10_index_all: str
+    i10_index_since_2018: str
+    articals: list
 
     @staticmethod
     def load_from_json(json_data: dict):
         answer = Author()
         # enter the core data
         answer.name = json_data["name"]
-        answer.papers_count = len(json_data["articles"])
-        answer.citations = int(json_data["cited_by"]["citations_all"])
-        answer.h_index = int(json_data["cited_by"]["h_index_all"])
-        answer.i10_index = int(json_data["cited_by"]["i10_index_all"])
+        # answer.study_fields = int(len(json_data['study_fields'].split(',')))
+        # answer.citations_all = int(json_data["cited_by"]["citations_all"])
+        # answer.citations_since_2018 = int(json_data['cited_by']['citations_since_2018'])
+        # answer.h_index_all = int(json_data["cited_by"]["h_index_all"])
+        # answer.h_index_since_2018 = int(json_data["cited_by"]["h_index_since_2018"])
+        # answer.i10_index_all = int(json_data["cited_by"]["i10_index_all"])
+        # answer.i10_index_since_2018 = int(json_data['cited_by']['i10_index_since_2018'])
+        answer.citations_all = int(json_data["citations_all"])
+        answer.citations_since_2018 = int(json_data['citations_since_2018'])
+        answer.h_index_all = int(json_data["h_index_all"])
+        answer.h_index_since_2018 = int(json_data["h_index_since_2018"])
+        answer.i10_index_all = int(json_data["i10_index_all"])
+        answer.i10_index_since_2018 = int(json_data['i10_index_since_2018'])
+        answer.articles = []
         return answer
